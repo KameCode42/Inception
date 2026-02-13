@@ -78,7 +78,19 @@ Debian :
 - C'est le système d'exploitation universel. Les systèmes Debian utilisent actuellement le noyau Linux ou le noyau FreeBSD.
 ##
 
+##
+Un container Docker doit être build avant d’être lancé.
+C’est pendant le build que vous pourrez obtenir des infos sur des potentielles erreurs que vous auriez fait dans le Dockerfile.
+Chaque commande Docker commence par le mot clef docker
+Préciser un nom au build, avec le flag -t
+exemple : docker build -t nginx
 
+
+Commandes essentielles d’un container Docker :
+docker build : 
+
+
+##
 
 
 
