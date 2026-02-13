@@ -49,8 +49,9 @@ Le tag latest est interdit :
 
 - Le container NGINX doit être le seul point d’entrée de votre infrastructure par le port 443 uniquement en utilisant le protocole TLSv1.2 ou TLSv1.3
   (443 est le port qui permet l’accès par https:// , et le 80 par http://)
+##
 
-
+##
 Arborescence :
 - A la racine, le Makefile
 
@@ -66,6 +67,16 @@ Dossier srcs/requirements
 - Chaque containers contient son Dockerfile et son dockerignore et un dossier tools
 ##
 
+##
+OS differents :
+
+Alpine Linux :
+- C'est une distribution Linux légère, orientée sécurité, elle contient le moins de fichiers et outils possibles
+  afin de laisser la possibilité au développeur de les installer par lui même si besoin.
+
+Debian :
+- C'est le système d'exploitation universel. Les systèmes Debian utilisent actuellement le noyau Linux ou le noyau FreeBSD.
+##
 
 
 
@@ -216,9 +227,10 @@ TLS permet :
 - L'authentification du client
 ##
 
+===================================================================================================
 
-
-
+Container NGINX :
+- NGINX permet de mettre en place un serveur Web.
 
 
 
