@@ -101,7 +101,7 @@ Docker-Compose
 - Compose permet de gérer des applications qui utilisent plusieurs containers et de communiquer entre eux.
 
 Exemple de fichier .yml :
-"image a mettre depuis github"
+<img width="654" height="614" alt="Image" src="https://github.com/user-attachments/assets/d7be77f3-3e33-48ff-bd94-737efb9ecf57" />
 
 Service :
 - Précise les différents services (images) à utiliser.
