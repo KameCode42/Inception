@@ -69,7 +69,7 @@ Docker :
 - Un conteneur ne contient que l’application et ses dépendances : il utilise le noyau du système hôte.
 
 Exemple image NGINX (dockerfile) :
-"image a mettre depuis github"
+<img width="754" height="527" alt="Image" src="https://github.com/user-attachments/assets/4df1d55d-6471-471d-9051-f14807da8fea" />
 
 - Ce fichier est un Dockerfile : c’est le nom du fichier principal qui sert à construire vos images Docker.
 
