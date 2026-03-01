@@ -49,6 +49,44 @@ Le tag latest est interdit :
 
 =========
 
+NGINX : (la porte d’entrée)
+- reçoit les requêtes HTTP/HTTPS (navigateur → serveur)
+- renvoie des fichiers statiques (HTML/CSS/JS/images)
+- rediriger les requêtes dynamiques (ex: .php) vers un autre service (ex: PHP-FPM)
+- gére SSL/TLS, redirections, cache, reverse proxy, etc.
+
+WordPress :
+- C’est le site / l’application (CMS).
+- Il génère les pages (accueil, articles, admin, login…).
+
+Il gère :
+- thèmes (design)
+- plugins (fonctions)
+- utilisateurs / permissions
+- contenu (articles, pages, médias)
+- Il est écrit en PHP, donc il a besoin de PHP-FPM pour s’exécuter.
+
+
+=========
+
+MariaDB :
+- Gestion de base de donnee (embranchement de mySQL)
+- c'est une copie de mySQL mais en open source
+- WordPress y stocke tout ce qui doit être “persistant” : comptes utilisateurs, mots de passe, articles/pages, etc..
+
+Exemple de fonctionnement base de donnee comme mySQL :
+- La gestion des données est basée sur un modèle de tableaux; toutes les données traitées sur MySQL sont stockées dans des tableaux pouvant être reliés les uns aux autres via des clés
+
+<img width="941" height="231" alt="Image" src="https://github.com/user-attachments/assets/cca075cb-393c-4831-9a59-14cfff57f259" />
+
+
+
+
+
+
+
+=========
+
 OS différents :
 
 Alpine Linux :
@@ -84,7 +122,7 @@ RUN :
 
 COPY :
 - Permet de copier un fichier (ou un dossier).
-- Il faut indiquer où se trouve le fichier à copier (depuis le répertoire où se trouve le Dockerfile), puis où le placer dans le conteneur.
+- Il faut indiquer où se trouve le fichier à copier (depuis le répertoire où se trouve le Dockerfile), puis où le placer dans le container.
 
 EXPOSE :
 - L’instruction EXPOSE informe Docker que le conteneur écoute sur les ports réseau spécifiés au moment de l’exécution.
@@ -132,10 +170,28 @@ TLS permet :
 - L’intégrité des données échangées
 - L’authentification du client
 
+=========
+
+Difference entre index.php et index.html (pour dossier config nginx) :
+
+index.html :
+- Fichier statique -> deja pret
+- Nginx le lit et l’envoie tel quel au navigateur.
+- Même contenu pour tout le monde (sauf cache/CDN etc.).
+- Pas besoin de PHP-FPM.
+- Exemple : une page maintenance
+
+index.php :
+- Fichier dynamique -> c’est du code PHP.
+- Nginx ne peut pas l’exécuter : il l’envoie à PHP-FPM
+- PHP exécute le code, souvent interagit avec la base de données (WordPress/MariaDB), génère du HTML, puis renvoie le résultat
+- Exemple : WordPress (articles, login, pages qui changent selon l’utilisateur, etc.)
+##
+
 ===================================================================================================
 
 ##
-Instructions :
+2. Instructions :
 
 Arborescence :
 - A la racine, le Makefile
@@ -158,9 +214,10 @@ Container NGINX :
 ===================================================================================================
 
 ##
-Ressources :
+3. Ressources :
 https://tuto.grademe.fr/inception/
 https://www.youtube.com/
+https://dev.to/alejiri/docker-nginx-wordpress-mariadb-tutorial-inception42-1eok
 ##
 
 ===================================================================================================
